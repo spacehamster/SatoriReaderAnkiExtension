@@ -34,9 +34,9 @@ async function main() {
         fs.mkdirSync("dist-bundle")
     }
     await sh("npm run build");
-    await zip("dist", "dist-bundle/ocr-extension-chrome.zip");
+    await zip("dist", "dist-bundle/satori-reader-anki-extension-chrome.zip");
     await sh("npm run build-dev");
-    await zip("dist", "dist-bundle/ocr-extension-chrome-dev.zip");
+    await zip("dist", "dist-bundle/satori-reader-anki-extension-chrome-dev.zip");
 }
 
 main();
