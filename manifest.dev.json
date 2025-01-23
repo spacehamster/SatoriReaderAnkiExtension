@@ -1,0 +1,19 @@
+{
+  "options_page": "src/pages/options/index.html",
+  "action": {
+    "default_icon": "public/dev-icon-32.png",
+    "default_popup": "src/pages/popup/index.html"
+  },
+  "icons": {
+    "64": "public/dev-icon-64.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "dev-icon-64.png",
+        "dev-icon-32.png"
+      ],
+      "matches": []
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+    "configurations": [
+        {
+            "name": "Node Launch",
+            "program": "${file}",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
+            "name": "TSX launch",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "tsx",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "skipFiles": [
+                "<node_internals>/**",
+                "${workspaceFolder}/node_modules/**",
+            ],
+            "program": "${file}",
+            "args": []
+        },
+        {
+            "name": "TSX launch inc node_modules",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "tsx",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "skipFiles": [
+                "<node_internals>/**",
+            ],
+            "program": "${file}",
+            "args": []
+        },
+    ]
+}

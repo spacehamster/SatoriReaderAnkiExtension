@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"command": "node ${file}",
+			"problemMatcher": [],
+			"label": "Run with node",
+			"group": "build"
+		},
+		{
+			"type": "shell",
+            "command": "npx tsx ${file}",
+			"problemMatcher": [],
+			"label": "Run with typescript",
+			"group": "build"
+		}
+	]
+}
