@@ -49,10 +49,10 @@ const addModel = async () => {
 <span class="highlight small glossary">[{{pos}}]</span>
 {{/pos}}
 
-{{#user-notes}}
+{{#often-kana}}
 <br/>
-<span>{{user-notes}}</span>
-{{/user-notes}}
+<span>{{often-kana}}</span>
+{{/often-kana}}
 
 <hr/>
 <span class="big jp" id="sentence">{{furigana:sentence}}</span><br/>
@@ -195,7 +195,7 @@ margin-block-end: 1em;
       "sentence-audio",
       "pos",
       "additional-senses",
-      "user-notes",
+      "often-kana",
       "source",
       "notes",
     ],

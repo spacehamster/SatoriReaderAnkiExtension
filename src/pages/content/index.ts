@@ -6,10 +6,8 @@ function makeid(length: number) {
   let result = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const charactersLength = characters.length;
-  let counter = 0;
-  while (counter < length) {
+  for (let i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    counter += 1;
   }
   return result;
 }
@@ -184,7 +182,7 @@ const addAnkiNote = async (noteBody: HTMLSpanElement, readingNote: boolean) => {
       "sentence-audio": `[sound:${sentenceAudioName}]`,
       "pos": pos,
       "non-context-senses": senseNonContext,
-      "misc": oftenKana ? "This word often appears in kana" : "",
+      "often-kana": oftenKana ? "This word often appears in kana" : "",
       "source": document.URL,
       "notes": extraNoteDisplay,
     }
