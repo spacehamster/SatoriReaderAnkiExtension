@@ -130,7 +130,10 @@ const addAnkiNote = async (noteBody: HTMLSpanElement, readingNote: boolean) => {
         .join("");
     let getSpecial = (id: string) => {
       let special = article.special.find(s => s.id == id)!;
-      return `<span class="example-sentence">${expToString(special.japanese)}<br>${special.english}</span>`;
+      let english = special.english
+        .replaceAll(/_(.+?)_/g, "<i>$1</i>")
+        .replaceAll(/\*(.+?)\*/g, "<b>$1</b>");
+      return `<span class="example-sentence">${expToString(special.japanese)}<br>${english}</span>`;
     }
     let discussionToString = (discussion: string) => discussion
       .replaceAll(/_(.+?)_/g, "<i>$1</i>")
