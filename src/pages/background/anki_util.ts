@@ -225,7 +225,7 @@ export const addNoteToAnki = async (request: any) => {
   if (!deckNames.result.includes(DECK_NAME)) {
     await invoke("createDeck", { deck: DECK_NAME });
   }
-  const canAddNotes = await invoke("canAddNotesWithErrorDetail", {
+  /*const canAddNotes = await invoke("canAddNotesWithErrorDetail", {
     notes: [
       {
         deckName: DECK_NAME,
@@ -237,7 +237,7 @@ export const addNoteToAnki = async (request: any) => {
   const canAddNote = canAddNotes.result[0]
   if (!canAddNote.canAdd) {
     throw Error(canAddNote.error);
-  }
+  }*/
   for (const media of request.media) {
     const response = await invoke("storeMediaFile", {
       filename: media.filename,
@@ -251,7 +251,11 @@ export const addNoteToAnki = async (request: any) => {
     note: {
       deckName: DECK_NAME,
       modelName: MODEL_NAME,
-      fields: request.fields
+      fields: request.fields,
+      options: {
+        allowDuplicate: true,
+        duplicateScope: "deck",
+      }
     }
   });
   if (response.error) {

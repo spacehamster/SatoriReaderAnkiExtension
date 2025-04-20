@@ -25,8 +25,13 @@ const createAnkiButton = (text: string) => {
   return ankiButton;
 }
 
-const addAnkiNote = async (noteBody: HTMLSpanElement, readingNote: boolean) => {
+const addAnkiNote = async (noteBody: HTMLSpanElement, isDuplicate: boolean, readingNote: boolean) => {
   console.time('addAnkiNote');
+  if(isDuplicate){
+    if(!confirm("Add duplicate card?")){
+      return;
+    }
+  }
   try {
     const headword = Array.from(noteBody.querySelectorAll(".expression span.wpt"))
       .map(e => e.textContent)
@@ -258,7 +263,7 @@ const addAnkiButton = async (noteBody: HTMLSpanElement) => {
     "Add duplicate expression to Anki" :
     "Add expression to Anki");
   addHeadwordButton.classList.add("add-note");
-  addHeadwordButton.onclick = () => addAnkiNote(noteBody, false);
+  addHeadwordButton.onclick = () => addAnkiNote(noteBody, response.result.headwordExists, false);
   noteBody.appendChild(addHeadwordButton);
 
   if (headword != reading) {
@@ -266,7 +271,7 @@ const addAnkiButton = async (noteBody: HTMLSpanElement) => {
       "Add duplicate reading to Anki" :
       "Add reading to Anki");
     addReadingButton.classList.add("add-note");
-    addReadingButton.onclick = () => addAnkiNote(noteBody, true);
+    addReadingButton.onclick = () => addAnkiNote(noteBody, response.result.readingExists, true);
     noteBody.appendChild(addReadingButton);
   }
 
